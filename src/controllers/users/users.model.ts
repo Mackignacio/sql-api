@@ -1,7 +1,15 @@
-import { MongoSchema, MongoModel } from "@mayajs/mongo";
+import { DataTypes } from "sequelize";
+import { SqlModel } from "@mayajs/sql";
 
-const schema = MongoSchema({
-  // Add mongo fields here
-});
+const schema = {
+  firstname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  lastname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+};
 
-export default MongoModel("users", schema);
+export default SqlModel("user", schema, {});

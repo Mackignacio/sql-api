@@ -27,6 +27,7 @@
     "@types/mongoose": "^5.7.32",
     "@types/mongoose-paginate": "^5.0.8",
     "@types/node": "^12.7.1",
+    "@types/validator": "^13.1.0",
     "typescript": "^3.9.6"
   }
 }

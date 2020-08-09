@@ -1,10 +1,18 @@
-import { Mongo } from "@mayajs/mongo";
+import { Sql } from "@mayajs/sql";
 import sample from "../controllers/sample/sample.model";
 
-export = Mongo({
-  name: "your-db-name-here",
-  connectionString: "your-connection-string-here",
+export = Sql({
+  name: "sql",
+  options: {
+    database: "api",
+    username: "root",
+    password: "",
+    options: {
+      host: "localhost",
+      dialect: "mysql" /* one of 'mariadb' | 'postgres' | 'mssql' */,
+    },
+  },
   schemas: [
-    sample, // Add Mongoose Schema here
+    sample, // Sequelize Schema here
   ],
 });

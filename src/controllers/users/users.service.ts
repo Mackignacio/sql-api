@@ -8,6 +8,24 @@ export class UsersServices {
 
   constructor() {}
 
+  async all() {
+    try {
+      return this.db.models.user.findAll();
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async byID(id: string) {
+    try {
+      return this.db.models.user.findOne({
+        where: { id },
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
   async create(body: any) {
     try {
       return this.db.models.user.create(body);
@@ -16,9 +34,25 @@ export class UsersServices {
     }
   }
 
-  async all() {
+  async update(id: string, body: any) {
     try {
-      return this.db.models.user.findAll();
+      await this.db.models.user.update(body, {
+        where: { id },
+      });
+      return this.db.models.user.findOne({
+        where: { id },
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async delete(id: string) {
+    try {
+      await this.db.models.user.destroy({
+        where: { id },
+      });
+      return `User id ${id} is deleted!`;
     } catch (error) {
       return error;
     }

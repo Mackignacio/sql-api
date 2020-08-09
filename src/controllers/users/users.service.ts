@@ -4,13 +4,21 @@ import { Models } from "@mayajs/sql";
 
 @Injectable()
 export class UsersServices {
-  @Models("user") model!: ModelCtor<Model<any, any>>;
+  @Database<Sequelize, ModelCtor<Model<any, any>>>("sql") db: any;
 
   constructor() {}
 
   async create(body: any) {
     try {
-      return this.model.create(body);
+      return this.db.models.user.create(body);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async all() {
+    try {
+      return this.db.models.user.findAll();
     } catch (error) {
       return error;
     }

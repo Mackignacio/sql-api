@@ -17,7 +17,9 @@
     "@mayajs/mongo": "^0.4.0",
     "@mayajs/sql": "^0.2.0",
     "mongoose": "^5.9.25",
-    "mongoose-paginate": "^5.0.3"
+    "mongoose-paginate": "^5.0.3",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "@mayajs/cli": "^0.4.0",

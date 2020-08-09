@@ -1,16 +1,15 @@
 import { Get, Patch, Post, Delete, Put } from "@mayajs/common";
 import { Request, Response, NextFunction } from "express";
 import { Controller } from "@mayajs/core";
-import { SampleServices } from "./sample.service"
-
+import { UsersServices } from "./users.service";
 
 @Controller({
-  model: "./sample.model",
-  route: "/sample",
+  model: "./users.model",
+  route: "/users",
 })
-export class SampleController {
-  constructor(private services: SampleServices) {}
-  
+export class UsersController {
+  constructor(private services: UsersServices) {}
+
   @Get({ path: "/", middlewares: [] })
   root(req: Request, res: Response, next: NextFunction): void {
     res.send(this.services.hello());

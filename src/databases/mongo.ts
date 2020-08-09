@@ -1,5 +1,5 @@
 import { Sql } from "@mayajs/sql";
-import sample from "../controllers/sample/sample.model";
+import sample from "../controllers/users/users.model";
 
 export = Sql({
   name: "sql",
